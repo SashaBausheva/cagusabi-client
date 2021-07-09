@@ -44,7 +44,7 @@ const userMessages = {
 
 let apiUrl
 const apiUrls = {
-  production: 'https://agile-wave-91156.herokuapp.com',
+  production: 'https://damp-meadow-38264.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
