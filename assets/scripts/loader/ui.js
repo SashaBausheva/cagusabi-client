@@ -14,8 +14,6 @@ const util = require('../util')
 // }
 
 const resetModalBackdrop = () => {
-  // $('.modal-backdrop.modal-preview').remove()
-  // $('.modal-backdrop.modal-upload').remove()
   $('.modal-backdrop').remove()
 }
 

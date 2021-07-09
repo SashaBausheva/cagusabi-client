@@ -2,7 +2,7 @@ $primary: #f0f0f5;
 $danger: #cf7651;
 
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,700|Julius+Sans+One|Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,700|Julius+Sans+One&display=swap');
 $main-color: #f0f0f5;
 $dark-teal: #244c53;
 $coral: #cf7651;
@@ -11,8 +11,8 @@ $dark: #4d4c4c;
 body {
   background-color: $main-color;
   color: $dark;
-  font-weight: 400;
   font-family: 'Josefin Slab', sans-serif;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -23,7 +23,6 @@ body {
 // }
 
 #uploadButton {
-  box-shadow:(2px 2px 2px #5d4c4c);
 }
 
 .btn-outline-primary {
@@ -183,9 +182,13 @@ a {
     }
   }
 
-#camera {
-  opacity: .9;
-  margin: 1rem;
+.camera-wrapper {
+  align-items: center;
+
+  #camera {
+    opacity: .9;
+    margin: 1rem;
+  }
 }
 
 #aboutMeModalButton {
