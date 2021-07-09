@@ -31,10 +31,10 @@ const onImageUpload = event => {
   api.imageUpload(formData)
     .then(res => {
       // Call onImagesLoad() if successful.
-      $('.uploadMsg').text('Upload Succesful!')
+      $('#uploadImageModal').modal('toggle')
       onImagesLoad(event)
     })
-    // .then(ui.onImageUploadSuccess)
+    .then(ui.onImageUploadSuccess)
     .catch(ui.onImageUploadFailure)
 }
 

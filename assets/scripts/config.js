@@ -36,7 +36,7 @@ const userMessages = {
     failure: 'Image could not be updated. Please try again!'
   },
   onImageRemove: {
-    title: 'Image Remove',
+    title: 'Image Removed',
     success: 'Image removed successfully!',
     failure: 'Image could not be removed. Please try again!'
   }
