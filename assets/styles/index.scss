@@ -1,5 +1,5 @@
 $primary: #f0f0f5;
-$danger: #cf7651;
+$info: #cf7651;
 
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,700|Julius+Sans+One&display=swap');
@@ -7,6 +7,8 @@ $main-color: #f0f0f5;
 $dark-teal: #244c53;
 $coral: #cf7651;
 $dark: #4d4c4c;
+$black: #000;
+$white: #fff;
 
 body {
   background-color: $main-color;
@@ -14,41 +16,104 @@ body {
   font-family: 'Josefin Slab', sans-serif;
   font-weight: 400;
   text-align: center;
-}
 
-// .btn-outline-primary:hover {
-//     color: white;
-//     background-color: $coral;
-//     border-color: #162936;
-// }
+  header {
+    nav {
+      background-color: $coral;
+      text-align: center;
 
-#uploadButton {
-}
-
-.btn-outline-primary {
-  margin: 0.5rem;
-}
-
-.auth-forms {
-  max-width: 50vh;
-  margin: 0 auto;
-  input {
-    margin: .5rem;
+      .btn {
+        margin: .5rem;
+      }
+    }
   }
-}
 
-h1 {
-  font-family: 'Julius Sans One', sans-serif;
-  font-weight: bold;
-  padding: 1rem;
+  a {
+    color: $coral;
 
-}
+    &:hover {
+      color: $coral;
+    }
+  }
 
-.section-wrapper {
-  // opacity: .6;
-  transition: 0.3s;
-  &:hover {
-    // opacity: 1;
+  h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    padding: 1rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .btn {
+    &.btn-password {
+      margin: 0 auto;
+    }
+  }
+
+  .about-engineers-btn {
+    margin: 1rem;
+  }
+
+  .about-engineers-list {
+    margin-bottom: 1rem;
+    text-align: center;
+
+    ul {
+      list-style-type: none;
+      margin: 0 0 1rem;
+      padding: 0;
+    }
+  }
+
+  .camera-wrapper {
+    align-items: center;
+
+    .welcome-message-camera {
+      margin: 1rem;
+      opacity: .9;
+    }
+  }
+
+  .sample-credentials {
+    font-size: .9rem;
+  }
+
+  .auth-forms {
+    margin: 0 auto;
+    max-width: 50vh;
+
+    input {
+      margin: .5rem;
+    }
+  }
+
+  .project-description {
+    margin: 1.5rem;
+    text-align: left;
+
+    .project-description-sasha {
+      margin: inherit;
+      text-align: center;
+    }
+  }
+
+  .upload-fields {
+    input[type='file'] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      background-color: $coral;
+      border-radius: 4px;
+      color: $white;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto 1rem;
+      padding: .5rem;
+      width: fit-content;
+    }
   }
 }
 
@@ -60,10 +125,18 @@ h1 {
   font-weight: bold;
 }
 
-.text-handlebars, .label-upload-form {
-  text-transform: lowercase;
-  float: left;
+.upload-details {
+  display: flex;
+  justify-content: space-between;
   text-align: left;
+
+  .item-text-handlebars {
+    text-transform: lowercase;
+  }
+
+  .item-data-handlebars {
+    text-align: right;
+  }
 }
 
 .image-description {
@@ -71,54 +144,58 @@ h1 {
   margin-top: 0;
 }
 
-.data-handlebars, .field-upload-form {
-  float: right;
+.field-upload-form {
   text-align: right;
-}
 
-.upload-data {
-  padding: 1rem;
+  .label-upload-form {
+    text-transform: lowercase;
+  }
 }
 
 .tags {
   margin-top: 1rem;
 }
 
-.modal-open {
-    overflow: visible;
-}
-
 .edit-upload-buttons, .upload-fields {
+  margin: 0 auto;
   max-width: 60%;
   text-align: justify;
-  margin: 0 auto;
 }
 
-.modal-title {
-  color: #000;
+.upload-fields {
+  .upload-form {
+    border-collapse: separate;
+    border-spacing: 0 .5rem;
+    display: table;
+    margin: 0.5rem 0;
+
+    p {
+      display: table-row;
+
+      label {
+        display: table-cell;
+        width: 600px;
+      }
+
+      input {
+        display: table-cell;
+        width: 75%;
+      }
+    }
+  }
 }
 
-nav {
-  background-color: $coral;
-  text-align: center;
+.modal {
+  .modal-header {
+    font-size: 24px;
+  }
 
-}
-
-.modal-body {
-  color: #000;
-}
-
-.modal-header {
-  font-size: 24px;
+  .modal-title {
+    color: $black;
+  }
 }
 
 .content {
-  // font-family: 'Source Sans Pro', sans-serif;
-  // margin-top: 20px;
-  // display:flex;
-  // @include make-row;
-  // justify-content: center;
-  // display: flex;
   @include media-breakpoint-up(sm) {
     column-count: 2;
 }
@@ -128,69 +205,37 @@ nav {
   @include media-breakpoint-up(lg) {
     column-count: 4;
   }
-  margin-top: 5vh;
   padding: 1rem;
 }
 
-li {
-  font-weight: bold;
-}
-a {
-  color: $dark;
-  font-weight:normal;
-
-}
-
 .images {
-    background: white;
-    border: 1px solid white;
-    margin-bottom: 1rem;
-    outline: none;
-    padding: 1rem;
-    // overflow: hidden;
-    break-inside: avoid;
-    text-align: center;
-    position: relative;
-    transition: 0.3s;
-    box-shadow:(2px 2px 2px #5d4c4c);
+  background: $white;
+  border: 1px solid $dark;
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem;
+  position: relative;
+  text-align: center;
+  transition: .25s linear;
 
-
-
-    p {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    small {
-      color: $dark;
-      display: block;
-      font-size: 1rem;
-    }
-
-    &:hover {
-      border: 1px solid $coral;
-    }
+  &:hover {
+    box-shadow: 1px 2px 5px 0 $dark;
   }
 
-  .aboutMeLink {
-    color: $coral;
-    &:hover {
-      color: $coral;
+  img {
+    max-width: 100%;
+  }
+
+  small {
+    color: $dark;
+    display: block;
+    font-size: 1rem;
+  }
+
+  .btn {
+    &:not(.modal-header) {
+      margin: .5rem;
     }
   }
-
-.camera-wrapper {
-  align-items: center;
-
-  #camera {
-    opacity: .9;
-    margin: 1rem;
-  }
-}
-
-#aboutMeModalButton {
-  margin: 1rem;
 }

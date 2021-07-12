@@ -27,11 +27,10 @@
                 </div>
                 <div class="modal-footer">
                   <a href="{{upload.url}}" target=“_blank”>
-                    <button type=“button” class="btn btn-danger">
+                    <button type=“button” class="btn btn-info full-size-btn">
                       Full Size
                     </button>
                   </a>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -53,21 +52,43 @@
       {{/if}}
     </h6>
     <hr>
-    <p class="text-handlebars">Submitted by:</p> <span class="data-handlebars">{{splitEmail upload.email}}</span><br />
-    <p class="text-handlebars">Submitted on:</p> <span class="data-handlebars">{{limit upload.createdAt}}</span><br />
-    <p class="text-handlebars">Updated on:</p><span class="data-handlebars">{{limit upload.updatedAt}}</span><br />
-      <h6 class="tags">tags:</h6>
+    <!-- <div class="upload-details">
+    <div class="text-handlebars">Owner: &nbsp;<p class="data-handlebars">{{splitEmail upload.email}}</p></div>
+    <div class="text-handlebars">Submitted: &nbsp;<p class="data-handlebars">{{limit upload.createdAt}}</p></div>
+    <div class="text-handlebars">Updated: &nbsp;<p class="data-handlebars">{{limit upload.updatedAt}}</p></div>
+    <h6 class="text-handlebars tags">tags: &nbsp;</h6>
     <p>
       {{upload.tags}}
     </p>
+    </div> -->
+    <div class="upload-details">
+      <div class="text-handlebars">
+        <p class="item-text-handlebars">Owner: &nbsp;</p>
+        <p class="item-text-handlebars">Submitted: &nbsp;</p>
+        <p class="item-text-handlebars">Updated: &nbsp;</p>
+      </div>
+      <div class="data-handlebars">
+        <p class="item-data-handlebars">{{splitEmail upload.email}}</p>
+        <p class="item-data-handlebars">{{limit upload.createdAt}}</p>
+        <p class="item-data-handlebars">{{limit upload.updatedAt}}</p>
+      </div>
+    </div>
+    <div class="upload-tags">
+      <h6 class="text-handlebars tags">tags: &nbsp;</h6>
+      <p>
+        {{upload.tags}}
+      </p>
+    </div>
     <hr>
     <!-- <span class="text-handlebars"> -->
       {{#if upload.editable}}
         <!-- Button trigger modal -->
+        <div class="upload-data-footer">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal-{{upload._id}}" data-id="{{upload._id}}" data-whatever="{{upload._id}}">
           Edit
         </button>
-        <button class="btn btn-danger remove-upload" data-id="{{upload._id}}">Take it down!</button>
+        <button class="btn btn-info remove-upload" data-id="{{upload._id}}">Delete</button>
+        </div>
       </div>
     <!-- </span> -->
         <!-- MODAL START -->
@@ -86,9 +107,9 @@
                 <div class="edit-upload-buttons">
                   <form data-id="{{upload._id}}" id="image-update-{{upload._id}}" class="form-group" required>
                     <p class="text-handlebars"> Name: </p><span class="data-handlebars"><input name="upload[name]" type="text" placeholder="name" /></span><br /><br />
-                  <p class="text-handlebars">Description: </p><span class="data-handlebars"><input name="upload[description]" type="text" placeholder="description" /> </span><br /><br />
+                  <p class="text-handlebars"> Description: </p><span class="data-handlebars"><input name="upload[description]" type="text" placeholder="description" /> </span><br /><br />
                     <p class="text-handlebars"> Tags: </p><span class="data-handlebars"><input name="upload[tags]" type="text" placeholder="tags" /> </span><br /></br />
-                    <center><p><input type='submit' value='Update' class="btn btn-danger"></p></center>
+                    <center><p><input type='submit' value='Update' class="btn btn-info"></p></center>
                   </form>
                 </div>
                 <!-- FORM END -->

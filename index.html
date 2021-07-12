@@ -35,7 +35,7 @@
       <!-- main -->
       <main>
         <section class="section about-engineers">
-          <button type="button" id="aboutMeModalButton" class="btn btn-outline-danger" data-toggle="modal" data-target="#aboutMeModal">
+          <button type="button" id="aboutMeModalButton" class="btn btn-outline-info about-engineers-btn" data-toggle="modal" data-target="#aboutMeModal">
             About The Project & The Engineers
           </button>
           <div class="modal fade" id="aboutMeModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
@@ -48,20 +48,34 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <h4><u>The Project</u> </h4>
-                  <p>As a team our assignment was to build an app that allows users to upload images onto a virtual file system. Ordinary users can only read/download an image where as Owners can do anything to the images they own.</p>
+                  <h3><u>The Project</u></h3>
+                  <div class="project-description">
+                    <p>
+                      This application originated as a team assignment in which a group of General Assembly's Software Engineering Immersive engineers were to build an app that allows users to upload images onto a virtual file system. All users can view/download images, whereas owners can also remove and edit the images they own.
+                    </p>
+                    <div class="project-description-sasha">
+                      <p>
+                        The project you are seeing now is a forked and improved version by Sasha Bausheva.
+                      </p>
+                      <p>
+                        You can find the source code on <a href="https://github.com/SashaBausheva/cagusabi-client" target="_blank">Sasha's GitHub page</a>.
+                      </p>
+                    </div>
+                  </div>
 
-                  <h4><u>The Engineers</u> </h4>
-                  This was a team project for General Assembly's Software Engineering Immersive.
-                  Team Cagusabi is comprised of:
                   <hr>
-                  <li>Cameron DiGregorio: <a href="https://www.linkedin.com/in/cdigregorio/" target="_blank" class="aboutMeLink">LinkedIn</a>, <a href="https://digregorioc.github.io./" target="_blank" class="aboutMeLink"> Portfolio</a></li>
-                  <li>Guy Benson: <a href="https://www.linkedin.com/in/guybbenson" target="_blank" class="aboutMeLink">LinkedIn</a>, <a href="https://gbbenson68.github.io/" target="_blank" class="aboutMeLink"> Portfolio</a></li>
-                  <li>Sasha Bausheva: <a href="https://www.linkedin.com/in/sasha-bausheva" target="_blank" class="aboutMeLink">LinkedIn</a>, <a href="https://sashabausheva.github.io" target="_blank" class="aboutMeLink"> Portfolio</a></li>
-                  <li>William Constantino: <a href="https://www.linkedin.com/in/william-constantino/" target="_blank" class="aboutMeLink">LinkedIn</a>, <a href="https://wcons.github.io./" target="_blank" class="aboutMeLink"> Portfolio</a></li>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <h3><u>Original Engineering Team:</u></h3>
+                  <div class="about-engineers-list">
+                    <ul>
+                      <li>Cameron DiGregorio: <a href="https://www.linkedin.com/in/cdigregorio/" target="_blank">LinkedIn</a>, <a href="https://digregorioc.github.io./" target="_blank" class="aboutMeLink"> Portfolio</a></li>
+                      <li>Guy Benson: <a href="https://www.linkedin.com/in/guybbenson" target="_blank">LinkedIn</a>, <a href="https://gbbenson68.github.io/" target="_blank" class="aboutMeLink"> Portfolio</a></li>
+                      <li>Sasha Bausheva: <a href="https://www.linkedin.com/in/sasha-bausheva" target="_blank">LinkedIn</a>, <a href="https://sashabausheva.github.io" target="_blank" class="aboutMeLink"> Portfolio</a></li>
+                      <li>William Constantino: <a href="https://www.linkedin.com/in/william-constantino/" target="_blank">LinkedIn</a>, <a href="https://wcons.github.io./" target="_blank" class="aboutMeLink"> Portfolio</a></li>
+                    </ul>
+                    <p>
+                      <a href="https://cagusabi.github.io/cagusabi-client" target="_blank">Original Project</a>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -73,12 +87,13 @@
           <h1>CAGUSABI Image Uploader</h1>
           <h5>Welcome to Cagusabi, the bespoke image loader.</h5>
           <div class="camera-wrapper">
-            <img id="camera" class="welcome-message-camera" src="public/images/camera.png" />
+            <img id="camera" alt="camera" class="welcome-message-camera" src="public/images/camera.png" />
           </div>
-          <p>You can sign in using these sample credentials:
+          <div class="sample-credentials">
+            <p>You can sign in using these sample credentials:</p>
             <p><b>Email:</b> sample@sample</p>
             <p><b>Password:</b> sample</p>
-          </p>
+          </div>
         </section>
 
         <p id="auth-message"></p>
@@ -91,10 +106,11 @@
                 <input class="form-control" name="credentials[email]" type="email" placeholder="Email" required>
                 <input class="form-control" name="credentials[password]" type="password" placeholder="Password" required>
                 <input class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation" required>
-                <p>You can sign in using these sample credentials:<br />
+                <div class="sample-credentials">
+                  <p>You can sign in using these sample credentials:<br />
                   <b>Email:</b> sample@sample<br />
-                  <b>Password:</b> sample
-                </p>
+                  <b>Password:</b> sample</p>
+              </div>
                 <input type="submit" class="btn btn-secondary" value="Submit">
               </div>
             </form>
@@ -104,11 +120,12 @@
                 <label for="formGroupSignIn">Sign In</label>
                 <input class="form-control" name="credentials[email]" type="email" placeholder="Email" required>
                 <input class="form-control" name="credentials[password]" type="password" placeholder="Password" required>
-                <p>You can sign in using these sample credentials:
+                <div class="sample-credentials">
+                  <p>You can sign in using these sample credentials:</p>
                   <p><b>Email:</b> sample@sample</p>
                   <p><b>Password:</b> sample</p>
-                </p>
-                <input type="submit" class="btn btn-danger" value="Submit">
+                </div>
+                <input type="submit" class="btn btn-info" value="Submit">
               </div>
             </form>
           </div>
@@ -118,13 +135,12 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="user-message-modal-title">DUMMY TITLE</h5>
+                  <h5 class="modal-title" id="user-message-modal-title"></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div id="user-message-modal-body" class="modal-body">
-                  DUMMY BODY
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -151,8 +167,7 @@
                       <input class="form-control" name="passwords[new]" type="password" placeholder="New Password" required>
                       <br />
                       <div class="modal-footer">
-                        <input type="submit" class="btn btn-danger" value="Change It!">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-info btn-password" value="Confirm Change">
                       </div>
                     </div>
                   </form>
@@ -164,8 +179,8 @@
         </section>
 
         <section class="section image-upload">
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#uploadImageModal" id='uploadButton'>
-            Upload a Photo!
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#uploadImageModal" id='uploadButton'>
+            Upload a Photo
           </button>
           <!-- IMAGE UPLOAD MODAL START -->
           <div class="modal" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageModalLabel" aria-hidden="true">
@@ -182,17 +197,30 @@
                   <div class="upload-fields">
                     <!-- UPLOAD FORM START -->
                     <form id="image-uploader" enctype="multipart/form-data" class="form-group">
-                      <p> <input name="file" type="file" required /></p>
-                      <p class="label-upload-form"> Name: </p><span class="field-upload-form"><input name="name" type="text" placeholder="name" required /> </span><br /><br />
-                      <p class="label-upload-form"> Description: </p><span class="field-upload-form"><input name="description" type="text" placeholder="desc" /> </span><br /><br />
-                      <p class="label-upload-form">Tags: </p><span class="field-upload-form"><input name="tags" type="text" placeholder="tags" required /> </span><br /><br />
-                      <input class="btn btn-danger" type="submit" />
+                        <label for="file-upload" class="custom-file-upload">
+                          <p class="upload-btn">
+                            Choose Image to Upload
+                          </p>
+                        </label>
+                        <input id="file-upload" name="file" type="file" required />
+                        <div class="container upload-form form-group">
+                          <p>
+                            <label for="submission-name" class="label-upload-form"> Name: </label>
+                            <input id="submission-name" class="form-control" name="name" type="text" placeholder="name" required />
+                          </p>
+                          <p>
+                            <label for="submission-description" class="label-upload-form"> Description: </label>
+                            <input id="submission-description" class="form-control" name="description" type="text" placeholder="desc" />
+                          </p>
+                          <p>
+                            <label for="submission-tags" class="label-upload-form"> Tags: </label>
+                            <input class="form-control" name="tags" id="submission-tags" type="text" placeholder="tags" required />
+                          </p>
+                      </div>
+                      <input class="btn btn-info" type="submit" />
                     </form>
                     <!-- UPLOAD FORM END -->
                   </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
