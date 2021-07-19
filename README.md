@@ -1,7 +1,7 @@
 # Connected Sites
 - Back-End Repo: https://github.com/SashaBausheva/cagusabi-api
 - Application: https://SashaBausheva.github.io/cagusabi-client
-- Heroku Site: https://agile-wave-91156.herokuapp.com
+- Heroku Site: https://damp-meadow-38264.herokuapp.com
 
 # Technologies Used
 - HTML
@@ -17,7 +17,7 @@
   The front-end of this website is a single page application (SPA) that presents the user with a welcome page before sign-up and log-in, and upon successful log-in, presents them with the database of all photos, theirs and other users, as well as the ability to view full sizes of the photos, add more photos, change their password, and log out. The photos displayed are pulled in from a handlebar, which structures each entry into a section. These entries are structured so the current user can see an "Edit" and "Delete"" button only on their own entries. Upon any successful add, delete, or edit, the content is pulled in again, so the user can immediately see their updates in the database.
 
 # Development and Challenges
-  This projects is a new and improved version of a former team project. You can find the original project [here](https://github.com/cagusabi/cagusabi-client).
+  This projects is a new and improved version of a former team project. You can find the original project [here](https://github.com/cagusabi/cagusabi-client). The original project was made in 3 days.
 
   This application originated as a team assignment in which a group of General Assembly's Software Engineering Immersive students were tasked with building an application that allows users to upload images onto a virtual file system. All users can view/download images, whereas owners can also remove and edit the images they havd submitted.
 
