@@ -1,129 +1,135 @@
-<!-- uploads will be passed here from ui. their id's will likely be stored in store -->
-<!-- we would pass them like this, in getUploadsSuccess: -->
-<!-- const showUploadsHtml = showUploadsTemplate({ uploads: data.uploads }) -->
-<!-- except I'm not sure the above line is datting into the right key/value -->
-<!-- we will figure it out tomorrow (Thursday) -->
 {{#each uploads as |upload|}}
 <div class="section-wrapper">
   <section data-id="{{upload.id}}" class="images">
-    <p>
-      <div>
-        <div class="feature-item">
-          <!-- Button trigger modal -->
-          <img src={{upload.url}} class="img-responsive" style="max-width: 100%" alt="" type="button" class="img-fluid" data-toggle="modal" data-target="#exampleModal-{{upload._id}}" data-id="{{upload._id}}" data-whatever="{{upload._id}}">
-
-          <!-- Modal -->
-          <div class="modal bd-example-modal-lg" id="exampleModal-{{upload._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-id="{{upload._id}}">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Preview</h5>
-                  <button type="button" class="close btn btn-secondary" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body text-center d-block" data-id="{{upload._id}}">
-                  <img src={{upload.url}} class="img-responsive" style="max-width: 100%" />
-                </div>
-                <div class="modal-footer">
-                  <a href="{{upload.url}}" target=“_blank”>
-                    <button type=“button” class="btn btn-info full-size-btn">
-                      Full Size
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal -->
-
-        </div>
-      </div>
-    </p>
-    <h3 class="image-title">
-      {{upload.name}}
-    </h3>
-    <div class="upload-data">
-    <h6 class="image-description">
-      {{#if upload.description}}
-        {{upload.description}}
-      {{else}}
-        No description provided.
-      {{/if}}
-    </h6>
-    <hr>
-    <!-- <div class="upload-details">
-    <div class="text-handlebars">Owner: &nbsp;<p class="data-handlebars">{{splitEmail upload.email}}</p></div>
-    <div class="text-handlebars">Submitted: &nbsp;<p class="data-handlebars">{{limit upload.createdAt}}</p></div>
-    <div class="text-handlebars">Updated: &nbsp;<p class="data-handlebars">{{limit upload.updatedAt}}</p></div>
-    <h6 class="text-handlebars tags">tags: &nbsp;</h6>
-    <p>
-      {{upload.tags}}
-    </p>
-    </div> -->
-    <div class="upload-details">
-      <div class="text-handlebars">
-        <p class="item-text-handlebars">Owner: &nbsp;</p>
-        <p class="item-text-handlebars">Submitted: &nbsp;</p>
-        <p class="item-text-handlebars">Updated: &nbsp;</p>
-      </div>
-      <div class="data-handlebars">
-        <p class="item-data-handlebars">{{splitEmail upload.email}}</p>
-        <p class="item-data-handlebars">{{limit upload.createdAt}}</p>
-        <p class="item-data-handlebars">{{limit upload.updatedAt}}</p>
-      </div>
-    </div>
-    <div class="upload-tags">
-      <h6 class="text-handlebars tags">tags: &nbsp;</h6>
-      <p>
-        {{upload.tags}}
-      </p>
-    </div>
-    <hr>
-    <!-- <span class="text-handlebars"> -->
-      {{#if upload.editable}}
+    <div>
+      <div class="feature-item">
         <!-- Button trigger modal -->
-        <div class="upload-data-footer">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal-{{upload._id}}" data-id="{{upload._id}}" data-whatever="{{upload._id}}">
-          Edit
-        </button>
-        <button class="btn btn-info remove-upload" data-id="{{upload._id}}">Delete</button>
-        </div>
-      </div>
-    <!-- </span> -->
-        <!-- MODAL START -->
+        <img src={{upload.url}} class="img-responsive" style="max-width: 100%" alt="" type="button" class="img-fluid" data-toggle="modal" data-target="#exampleModal-{{upload._id}}" data-id="{{upload._id}}">
 
-        <div class="modal" id="editModal-{{upload._id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
-          <div class="modal-dialog">
+        <!-- Modal -->
+        <div class="modal bd-example-modal-lg" id="exampleModal-{{upload._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-id="{{upload._id}}">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Preview</h5>
                 <button type="button" class="close btn btn-secondary" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <!-- FORM START -->
-                <div class="edit-upload-buttons">
-                  <form data-id="{{upload._id}}" id="image-update-{{upload._id}}" class="form-group" required>
-                    <p class="text-handlebars"> Name: </p><span class="data-handlebars"><input name="upload[name]" type="text" placeholder="name" /></span><br /><br />
-                  <p class="text-handlebars"> Description: </p><span class="data-handlebars"><input name="upload[description]" type="text" placeholder="description" /> </span><br /><br />
-                    <p class="text-handlebars"> Tags: </p><span class="data-handlebars"><input name="upload[tags]" type="text" placeholder="tags" /> </span><br /></br />
-                    <center><p><input type='submit' value='Update' class="btn btn-info"></p></center>
-                  </form>
-                </div>
-                <!-- FORM END -->
+              <div class="modal-body text-center d-block" data-id="{{upload._id}}">
+                <img src={{upload.url}} class="img-responsive" style="max-width: 100%" />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
+                <a href="{{upload.url}}" target=“_blank”>
+                  <button type=“button” class="btn btn-info full-size-btn">
+                    Full Size
+                  </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
+        <!-- End Modal -->
+
+      </div>
+    </div>
+    <h3 class="image-title">
+      {{upload.name}}
+    </h3>
+    <div class="upload-data">
+      <h6 class="image-description">
+        {{#if upload.description}}
+          {{upload.description}}
+          {{else}}
+          No description provided.
+          {{/if}}
+      </h6>
+      <hr>
+      <div class="upload-details">
+        <div class="text-handlebars">
+          <p class="item-text-handlebars">Owner: &nbsp;</p>
+          <p class="item-text-handlebars">Submitted: &nbsp;</p>
+          <p class="item-text-handlebars">Updated: &nbsp;</p>
+        </div>
+        <div class="data-handlebars">
+          <p class="item-data-handlebars">{{splitEmail upload.email}}</p>
+          <p class="item-data-handlebars">{{limit upload.createdAt}}</p>
+          <p class="item-data-handlebars">
+            {{#ifEquals upload.createdAt upload.updatedAt (limit upload.updatedAt)}}
+            {{/ifEquals}}
+          </p>
+        </div>
+      </div>
+      <div class="upload-tags">
+        <h6 class="text-handlebars tags">tags: &nbsp;</h6>
+        <p>
+          {{upload.tags}}
+        </p>
+      </div>
+      <hr>
+
+      {{#if upload.editable}}
+
+        <!-- Button trigger modal -->
+      <div class="upload-data-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal-{{upload._id}}" id="edit-button-{{upload._id}}" data-id="{{upload._id}}">
+          Edit
+        </button>
+        <button class="btn btn-info remove-upload" data-id="{{upload._id}}">Delete</button>
+      </div>
+    </div>
+        <!-- MODAL START -->
+
+      <div class="modal modal-edit" id="editModal-{{upload._id}}" data-id="{{upload._id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">Edit</h5>
+              <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <!-- FORM START -->
+              <div class="edit-upload-buttons">
+                <form data-id="{{upload._id}}" id="image-update-{{upload._id}}" required>
+                  <div class="edit-fields">
+
+                    <div class="container form-group row">
+                      <label for="edit-submission-name-{{upload._id}}" class="text-handlebars label-upload-form col-sm-3 col-form-label">Name:</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="data-handlebars form-control" name="upload[name]" value="{{upload.name}}" id="edit-submission-name-{{upload._id}}" placeholder="name">
+                      </div>
+                    </div>
+
+                    <div class="container form-group row">
+                      <label for="edit-submission-description-{{upload._id}}" class="text-handlebars label-upload-form col-sm-3 col-form-label">Description:</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="data-handlebars form-control" name="upload[description]" value="{{upload.description}}" id="edit-submission-description-{{upload._id}}" placeholder="description">
+                      </div>
+                    </div>
+
+                    <div class="container form-group row">
+                      <label for="edit-submission-tags-{{upload._id}}" class="text-handlebars label-upload-form col-sm-3 col-form-label">Tags:</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="data-handlebars form-control" name="upload[tags]" value="{{upload.tags}}" id="edit-submission-tags-{{upload._id}}" placeholder="tags">
+                      </div>
+                    </div>
+                  </div>
+                  <input type='submit' value='Update' class="btn btn-info">
+                </form>
+              </div>
+              <!-- FORM END -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
         <!-- MODAL END -->
 
-      {{/if}}
+    {{/if}}
 
   </section>
 </div>

@@ -43,7 +43,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="aboutModal">About The Project & The Engineers</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -107,10 +107,14 @@
                 <input class="form-control" name="credentials[password]" type="password" placeholder="Password" required>
                 <input class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation" required>
                 <div class="sample-credentials">
-                  <p>You can sign in using these sample credentials:<br />
+                  <p>You can also sign in using these sample credentials:<br />
                   <b>Email:</b> sample@sample<br />
                   <b>Password:</b> sample</p>
-              </div>
+                </div>
+                <div class="api-info">
+                  <p>Please avoid using your real passwords!</p>
+                  <p>Note: It might take the API a couple seconds to wake up</p>
+                </div>
                 <input type="submit" class="btn btn-secondary" value="Submit">
               </div>
             </form>
@@ -125,6 +129,10 @@
                   <p><b>Email:</b> sample@sample</p>
                   <p><b>Password:</b> sample</p>
                 </div>
+                <div class="api-info">
+                  <p>Please avoid using your real passwords!</p>
+                  <p>Note: It might take the API a couple seconds to wake up</p>
+                </div>
                 <input type="submit" class="btn btn-info" value="Submit">
               </div>
             </form>
@@ -136,7 +144,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="user-message-modal-title"></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -156,7 +164,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="changePasswordModalTitle">Change Password</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -189,38 +197,48 @@
                 <div class="modal-header">
                   <h5 class="modal-title-upload" id="uploadImageModalLabel"></h5>
                   <div class='uploadMsg'></div>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <div class="upload-fields">
                     <!-- UPLOAD FORM START -->
-                    <form id="image-uploader" enctype="multipart/form-data" class="form-group">
-                        <label for="file-upload" class="custom-file-upload">
-                          <p class="upload-btn">
-                            Choose Image to Upload
-                          </p>
-                        </label>
-                        <input id="file-upload" name="file" type="file" required />
-                        <div class="container upload-form form-group">
-                          <p>
-                            <label for="submission-name" class="label-upload-form"> Name: </label>
-                            <input id="submission-name" class="form-control" name="name" type="text" placeholder="name" required />
-                          </p>
-                          <p>
-                            <label for="submission-description" class="label-upload-form"> Description: </label>
-                            <input id="submission-description" class="form-control" name="description" type="text" placeholder="desc" />
-                          </p>
-                          <p>
-                            <label for="submission-tags" class="label-upload-form"> Tags: </label>
-                            <input class="form-control" name="tags" id="submission-tags" type="text" placeholder="tags" required />
-                          </p>
+                  <form id="image-uploader" class="upload-form" enctype="multipart/form-data">
+                    <div class="file-upload-section">
+                      <label for="file-upload" class="custom-file-upload">
+                        <p class="upload-btn">
+                          Choose Image to Upload
+                        </p>
+                      </label>
+                      <input id="file-upload" name="file" type="file" required />
+                      <div id="file-chosen" class="file-chosen">No file chosen</div>
+                    </div>
+
+                    <div class="upload-fields">
+                      <div class="container form-group row">
+                        <label for="submission-name" class="label-upload-form col-sm-3 col-form-label">Name:</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="name" id="submission-name" placeholder="name">
+                        </div>
                       </div>
-                      <input class="btn btn-info" type="submit" />
-                    </form>
+
+                      <div class="container form-group row">
+                        <label for="submission-description" class="label-upload-form col-sm-3 col-form-label">Description:</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="description" id="submission-description" placeholder="description">
+                        </div>
+                      </div>
+
+                      <div class="container form-group row">
+                        <label for="submission-tags" class="label-upload-form col-sm-3 col-form-label">Tags:</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="tags" id="submission-tags" placeholder="tags">
+                        </div>
+                      </div>
+                    </div>
+                    <input class="btn btn-info" type="submit" />
+                  </form>
                     <!-- UPLOAD FORM END -->
-                  </div>
                 </div>
               </div>
             </div>

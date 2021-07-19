@@ -12,6 +12,7 @@ document.getElementById('change-password-btn').style.display = 'none'
 document.getElementById('sign-out-btn').style.display = 'none'
 document.getElementById('image-uploader').style.display = 'none'
 document.getElementById('uploadButton').style.display = 'none'
+
 /*
 ** onSignUp()
 **    parameter: event
@@ -92,6 +93,19 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out-btn').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+
+  $('#file-upload').on('change', function () {
+    $('#file-chosen').text(this.files[0].name)
+  })
+  //
+  // $('.content').on('show.bs.modal', '#exampleModal-' + $(this).data('id'), function (event) {
+  //   const button = $(event.relatedTarget) // Button that triggered the modal
+  //   const recipient = button.data('attribute') // Extract info from data-* attributes
+  //   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  //   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  //   const modal = $(this)
+  //   modal.find('.modal-body input').val(recipient)
+  // })
 }
 
 module.exports = {

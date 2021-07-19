@@ -2,16 +2,7 @@
 const pkg = 'loader.ui'
 
 const indexHandlebarTemplate = require('../templates/uploads-listing.handlebars')
-// const store = require('../store')
 const util = require('../util')
-
-// const onImageUploadSuccess = apiResponse => {
-//   util.logMessage(`${pkg}.onImageUploadSuccess()`)
-//   $('.owner-' + apiResponse.upload._id).text('Owner username: ' + store.user.email)
-//   util.logObject(apiResponse)
-//   $('form').trigger('reset')
-//   $('#image-display').html(`<img src=${apiResponse.upload.url} />`)
-// }
 
 const resetModalBackdrop = () => {
   $('.modal-backdrop').remove()
@@ -20,10 +11,6 @@ const resetModalBackdrop = () => {
 const onIndexSuccess = responseData => {
   util.logMessage(`${pkg}.onIndexSuccess()`)
   util.logObject(responseData)
-  // NOTE: Upon a successful INDEX don't display a modal, just display the thumbnails!!
-
-  // util.logMessage(`${pkg}.onIndexSuccess()`, 'USER EMAIL ' + store.user.email)
-  // const uploadsAndUser = responseData.upload
   const uploadedImages = responseData.uploads
   const sortUploads = uploadedImages.sort(function (a) {
     if (a.editable === true) return -1
@@ -31,8 +18,20 @@ const onIndexSuccess = responseData => {
   })
   const indexUploadsHandlebars = indexHandlebarTemplate({ uploads: sortUploads })
   $('.content').html(indexUploadsHandlebars)
+  populateHandlebarsFields(uploadedImages)
   $('form').trigger('reset')
   resetModalBackdrop()
+}
+
+const populateHandlebarsFields = images => {
+  $('.modal-edit').each(function () {
+    $(this).on('shown.bs.modal', function () {
+      const image = images.find(x => x._id === $(this).data('id'))
+      $('#edit-submission-name-' + $(this).data('id')).val(image.name)
+      $('#edit-submission-description-' + $(this).data('id')).val(image.description)
+      $('#edit-submission-tags-' + $(this).data('id')).val(image.tags)
+    })
+  })
 }
 
 const onIndexFailure = responseData => {

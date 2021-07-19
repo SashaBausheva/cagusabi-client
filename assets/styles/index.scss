@@ -7,6 +7,7 @@ $main-color: #f0f0f5;
 $dark-teal: #244c53;
 $coral: #cf7651;
 $dark: #4d4c4c;
+$shadow: #787371;
 $black: #000;
 $white: #fff;
 
@@ -67,6 +68,16 @@ body {
     }
   }
 
+  .project-description {
+    margin: 1.5rem;
+    text-align: left;
+
+    .project-description-sasha {
+      margin: inherit;
+      text-align: center;
+    }
+  }
+
   .camera-wrapper {
     align-items: center;
 
@@ -76,7 +87,8 @@ body {
     }
   }
 
-  .sample-credentials {
+  .sample-credentials,
+  .api-info {
     font-size: .9rem;
   }
 
@@ -89,17 +101,7 @@ body {
     }
   }
 
-  .project-description {
-    margin: 1.5rem;
-    text-align: left;
-
-    .project-description-sasha {
-      margin: inherit;
-      text-align: center;
-    }
-  }
-
-  .upload-fields {
+  .upload-form {
     input[type='file'] {
       display: none;
     }
@@ -110,132 +112,104 @@ body {
       color: $white;
       cursor: pointer;
       display: block;
-      margin: 0 auto 1rem;
+      margin: 0 auto;
       padding: .5rem;
       width: fit-content;
     }
-  }
-}
 
-.image-title {
-  margin-top: .8rem;
-  margin-bottom: 0;
-  font-size: 1.5rem;
-  letter-spacing: .2rem;
-  font-weight: bold;
-}
-
-.upload-details {
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-
-  .item-text-handlebars {
-    text-transform: lowercase;
+    .file-chosen {
+      margin: .5rem;
+    }
   }
 
-  .item-data-handlebars {
-    text-align: right;
+  .content {
+    @include media-breakpoint-up(sm) {
+      column-count: 2;
   }
-}
-
-.image-description {
-  margin-bottom: .6rem;
-  margin-top: 0;
-}
-
-.field-upload-form {
-  text-align: right;
-
-  .label-upload-form {
-    text-transform: lowercase;
+    @include media-breakpoint-up(md) {
+      column-count: 3;
   }
-}
+    @include media-breakpoint-up(lg) {
+      column-count: 4;
+    }
+    padding: 1rem;
 
-.tags {
-  margin-top: 1rem;
-}
+    .images {
+      background: $white;
+      border: 1px solid $dark;
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      outline: none;
+      padding: 1rem;
+      position: relative;
+      text-align: center;
+      transition: .25s linear;
 
-.edit-upload-buttons, .upload-fields {
-  margin: 0 auto;
-  max-width: 60%;
-  text-align: justify;
-}
-
-.upload-fields {
-  .upload-form {
-    border-collapse: separate;
-    border-spacing: 0 .5rem;
-    display: table;
-    margin: 0.5rem 0;
-
-    p {
-      display: table-row;
-
-      label {
-        display: table-cell;
-        width: 600px;
+      &:hover {
+        box-shadow: 1px 2px 5px 0 $shadow;
       }
 
-      input {
-        display: table-cell;
-        width: 75%;
+      img {
+        max-width: 100%;
+      }
+
+      small {
+        color: $dark;
+        display: block;
+        font-size: 1rem;
+      }
+
+      .btn {
+        &:not(.close) {
+          margin: .5rem;
+        }
+      }
+
+      .image-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: .2rem;
+        margin-bottom: 0;
+        margin-top: .8rem;
+      }
+
+      .image-description {
+        margin-bottom: .6rem;
+        margin-top: 0;
+      }
+
+      .upload-details {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+
+        .item-text-handlebars {
+          text-transform: lowercase;
+        }
+
+        .item-data-handlebars {
+          text-align: right;
+        }
+      }
+
+      .tags {
+        margin-top: 1rem;
       }
     }
   }
-}
 
-.modal {
-  .modal-header {
-    font-size: 24px;
-  }
+  .modal {
+    .modal-header {
+      font-size: 24px;
+    }
 
-  .modal-title {
-    color: $black;
-  }
-}
+    .modal-title {
+      color: $black;
+    }
 
-.content {
-  @include media-breakpoint-up(sm) {
-    column-count: 2;
-}
-  @include media-breakpoint-up(md) {
-    column-count: 3;
-}
-  @include media-breakpoint-up(lg) {
-    column-count: 4;
-  }
-  padding: 1rem;
-}
-
-.images {
-  background: $white;
-  border: 1px solid $dark;
-  break-inside: avoid;
-  margin-bottom: 1rem;
-  outline: none;
-  padding: 1rem;
-  position: relative;
-  text-align: center;
-  transition: .25s linear;
-
-  &:hover {
-    box-shadow: 1px 2px 5px 0 $dark;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  small {
-    color: $dark;
-    display: block;
-    font-size: 1rem;
-  }
-
-  .btn {
-    &:not(.modal-header) {
-      margin: .5rem;
+    .upload-fields,
+    .edit-fields {
+      text-align: left;
     }
   }
 }

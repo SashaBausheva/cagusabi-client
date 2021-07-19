@@ -61,7 +61,7 @@ const onChangePasswordSuccess = () => {
   document.getElementById('changePasswordModalTitle').style.display = 'none'
   $('#changePasswordModalTitle').fadeIn('fast')
   $('#changePasswordModalTitle').html('Password changed successfully!')
-  setTimeout(() => $('#changePasswordModalTitle').text('Change Again?'), 3000)
+  setTimeout(() => $('#changePasswordModalTitle').text('Change Password'), 3000)
   $('form').trigger('reset')
 }
 
