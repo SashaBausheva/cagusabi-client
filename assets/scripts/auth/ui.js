@@ -30,8 +30,6 @@ const onSignInSuccess = (responseData) => {
   loaderApi.imageIndex()
     .then(loaderUI.onIndexSuccess)
     .catch(loaderUI.onIndexFailure)
-  // const indexUploadsHandlebars = indexHandlebarTemplate({ uploads: store.uploads })
-  // $('.content').html(indexUploadsHandlebars)
 }
 
 const onSignInFailure = () => {

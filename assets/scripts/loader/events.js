@@ -85,19 +85,12 @@ const uploadMsgReset = () => {
   $('.uploadMsg').text('Upload a Photo')
 }
 
-// const populateFields = event => {
-//   console.log('populate is running')
-//   $('#edit-submission-name-' + $(this).data('id')).val('NAMEEEEEE-' + $(this).data('id'))
-// }
-
 const addHandlers = () => {
   $('#uploadButton').on('click', uploadMsgReset)
   $('#image-update').on('submit', onImageUpdate)
   $('#image-uploader').on('submit', onImageUpload)
   $('.content').on('click', '.remove-upload', onImageRemove)
   $('.content').submit('#image-update-' + $(this).data('id'), onImageUpdate)
-  // $('document').on('shown.bs.modal', '#editModal-' + $(this).data('id'), populateFields)
-  // $('#editModal-' + $(this).data('id')).on('shown.bs.modal', populateFields)
 }
 
 module.exports = {
